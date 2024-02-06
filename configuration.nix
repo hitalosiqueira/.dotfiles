@@ -2,13 +2,32 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.xremap-flake.nixosModules.default
     ];
+
+  #keyboard
+  services.xremap = {
+    #config = {
+    #  modmap = {        
+    #    name = "Global";
+    #    remap = {
+    #      "CapsLock" = "Ctrl_L";
+    #    };
+    #  };
+    #};
+    yamlConfig = ''
+modmap:
+  - name: Global
+    remap:
+      CapsLock: Ctrl_L
+    '';
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -48,8 +67,13 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  
+  services.xserver.displayManager.sessionCommands = "sleep 5 && ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'remove Lock = Caps_Lock' &";
 
-  # Configure keymap in X11
+
+
+
+# Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
