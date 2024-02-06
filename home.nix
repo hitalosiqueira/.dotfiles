@@ -1,9 +1,10 @@
-{ config, pkgs, nixvim, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./sh.nix
     ./git.nix
+    ./nixvim.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

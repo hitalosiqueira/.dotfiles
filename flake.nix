@@ -12,6 +12,10 @@
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, home-manager, ... }@inputs: 
@@ -33,6 +37,7 @@
        inherit pkgs;
        modules = [./home.nix ];
        extraSpecialArgs = {
+         inherit inputs;
          fullName = "Hitalo Siqueira";
          emailAddress = "hsiqueira10@gmail.com";
        };
