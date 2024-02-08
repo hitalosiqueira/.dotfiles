@@ -5,6 +5,7 @@
     ./sh.nix
     ./git.nix
     ./nixvim.nix
+    ./wm.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -39,6 +40,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.nixpkgs-fmt
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

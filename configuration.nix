@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.xremap-flake.nixosModules.default
     ];
@@ -22,10 +23,10 @@
     #  };
     #};
     yamlConfig = ''
-modmap:
-  - name: Global
-    remap:
-      CapsLock: Ctrl_L
+      modmap:
+        - name: Global
+          remap:
+            CapsLock: Ctrl_L
     '';
   };
 
@@ -67,13 +68,15 @@ modmap:
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
-  services.xserver.displayManager.sessionCommands = "sleep 5 && ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'remove Lock = Caps_Lock' &";
 
+  #programs.hyprland = {
+  # enable = true;
+  #xwayland.enable = true;
+  #};
 
+  security.polkit.enable = true;
 
-
-# Configure keymap in X11
+  # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
@@ -109,7 +112,7 @@ modmap:
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -122,7 +125,17 @@ modmap:
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     meslo-lgs-nf
+    waybar
+    kitty
   ];
+
+  hardware = {
+    opengl.enable = true;
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
