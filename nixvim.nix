@@ -146,13 +146,18 @@
     ];
 
     plugins = {
-      gitsigns.enable = true;
       fugitive.enable = true;
       comment-nvim.enable = true;
       tmux-navigator.enable = true;
       treesitter.enable = true;
       telescope.enable = true;
       undotree.enable = true;
+      nix.enable = true;
+      gitsigns = {
+        enable = true;
+        currentLineBlame = true;
+      };
+
       lsp = {
         enable = true;
         servers = {
