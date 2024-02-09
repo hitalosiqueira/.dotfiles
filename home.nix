@@ -41,6 +41,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.nixpkgs-fmt
+    pkgs.wl-clipboard
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
