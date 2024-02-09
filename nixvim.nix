@@ -10,13 +10,40 @@
     options = {
       relativenumber = true;
       incsearch = true;
+      swapfile = false;
+      backup = false;
+      wrap = false;
+      smartindent = true;
+      guicursor = "";
+      tabstop = 2;
+      softtabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      hlsearch = false;
+      termguicolors = true;
+      background = "dark";
+      signcolumn = "yes";
+      scrolloff = 8;
+      colorcolumn = "80";
+      laststatus = 3;
     };
+
+    extraConfigLua = ''
+      vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+    '';
 
     globals = {
       mapleader = " ";
     };
 
     keymaps = [
+      {
+        action = "<cmd>UndotreeToggle<cr>";
+        key = "<leader>u";
+        options = {
+          silent = false;
+        };
+      }
       {
         action = "<cmd>Telescope find_files<cr>";
         key = "<leader>sf";
@@ -75,6 +102,7 @@
       tmux-navigator.enable = true;
       treesitter.enable = true;
       telescope.enable = true;
+      undotree.enable = true;
       lsp = {
         enable = true;
         servers = {
