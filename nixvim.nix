@@ -38,6 +38,56 @@
 
     keymaps = [
       {
+        action = "${"[[\"_dP]]"}";
+        key = "<leader>p";
+        options = {
+          silent = false;
+        };
+        mode = "x";
+      }
+      {
+        action = "${"[[\"+Y]]"}";
+        key = "<leader>Y";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "${"[[\"+y]]"}";
+        key = "<leader>y";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "Nzzzv";
+        key = "N";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "nzzzv";
+        key = "n";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<C-u>zz";
+        key = "<C-u>";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<C-d>zz";
+        key = "<C-d>";
+        options = {
+          silent = false;
+        };
+      }
+      {
         action = "<cmd>UndotreeToggle<cr>";
         key = "<leader>u";
         options = {
@@ -66,7 +116,7 @@
         };
       }
       {
-        action = "<cmd>Telescope old_files<cr>";
+        action = "<cmd>Telescope oldfiles<cr>";
         key = "<leader>so";
         options = {
           silent = false;
