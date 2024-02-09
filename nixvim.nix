@@ -5,6 +5,7 @@
   ];
   programs.nixvim = {
     enable = true;
+    colorschemes.catppuccin.enable = true;
 
     options = {
       relativenumber = true;
@@ -15,20 +16,65 @@
       mapleader = " ";
     };
 
+    keymaps = [
+      {
+        action = "<cmd>Telescope find_files<cr>";
+        key = "<leader>sf";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>Telescope git_files<cr>";
+        key = "<leader>sg";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>Telescope buffers<cr>";
+        key = "<leader>sb";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>Telescope old_files<cr>";
+        key = "<leader>so";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>Telescope help_tags<cr>";
+        key = "<leader>sh";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>Telescope live_grep<cr>";
+        key = "<leader>sw";
+        options = {
+          silent = false;
+        };
+      }
+    ];
+
     autoCmd = [
       {
         event = [ "BufWritePre" ];
         callback = { __raw = "function() vim.lsp.buf.format({async = true}) end"; };
       }
     ];
-    # ... and plugins
+
     plugins = {
-      telescope = {
-        enable = true;
-      };
-      treesitter = {
-        enable = true;
-      };
+      gitsigns.enable = true;
+      fugitive.enable = true;
+      comment-nvim.enable = true;
+      tmux-navigator.enable = true;
+      treesitter.enable = true;
+      telescope.enable = true;
       lsp = {
         enable = true;
         servers = {
@@ -47,11 +93,27 @@
             enable = true;
           };
         };
+        keymaps = {
+          diagnostic = {
+            "[d" = "goto_prev";
+            "]d" = "goto_next";
+            "gl" = "open_float";
+          };
+          lspBuf = {
+            "K" = "hover";
+            "gd" = "definition";
+            "gD" = "declaration";
+            "gi" = "implementation";
+            "go" = "type_definition";
+            "gr" = "references";
+            "gs" = "signature_help";
+            "<leader>rn" = "rename";
+            "<leader>f" = "format";
+            "<leader>ca" = "code_action";
+          };
+        };
       };
-
     };
-
-    colorschemes.catppuccin.enable = true;
   };
 }
 
