@@ -6,6 +6,8 @@
     ./git.nix
     ./nixvim.nix
     ./wm.nix
+    ./tmux.nix
+
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -42,6 +44,7 @@
     # '')
     pkgs.nixpkgs-fmt
     pkgs.wl-clipboard
+    pkgs.tmux
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
