@@ -19,6 +19,11 @@
         fonts.size = 11.0;
         position = "top";
       }];
+      window = {
+        border = 0;
+        titlebar = false;
+        hideEdgeBorders = "smart";
+      };
       # Display device configuration
       output = {
         eDP-1 = {
@@ -27,6 +32,13 @@
         };
       };
     };
+    extraConfig = ''
+      # Brightness
+      bindsym XF86MonBrightnessDown exec light -U 10
+      bindsym XF86MonBrightnessUp exec light -A 10
+
+      exec sleep 5; systemctl --user start kanshi.service
+    '';
     # End of Sway-specificc Configuration
   };
 }

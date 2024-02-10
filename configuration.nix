@@ -109,7 +109,7 @@
   users.users.hsiq = {
     isNormalUser = true;
     description = "hsiq";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
       firefox
       #  thunderbird
@@ -126,9 +126,22 @@
     wget
   ];
 
-  fonts.packages = with pkgs; [
-    meslo-lgs-nf
-  ];
+  fonts = {
+    packages = with pkgs; [
+      meslo-lgs-nf
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      font-awesome
+      source-han-sans
+      source-han-sans-japanese
+      source-han-serif-japanese
+    ];
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Serif" "Source Han Serif" ];
+      sansSerif = [ "Noto Sans" "Source Han Sans" ];
+    };
+  };
 
   hardware = {
     opengl = {
@@ -139,6 +152,7 @@
   xdg = {
     portal = {
       enable = true;
+      wlr.enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
@@ -185,5 +199,15 @@
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  programs.light.enable = true;
+
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+    };
+  };
 
 }

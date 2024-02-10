@@ -14,6 +14,15 @@
   # manage.
   home.username = "hsiq";
   home.homeDirectory = "/home/hsiq";
+  home.pointerCursor = {
+    name = "Adwaita";
+    package = pkgs.gnome.adwaita-icon-theme;
+    size = 26;
+    x11 = {
+      enable = true;
+      defaultCursor = "Adwaita";
+    };
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
