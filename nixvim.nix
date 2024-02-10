@@ -88,6 +88,34 @@
         };
       }
       {
+        action = "<cmd>TmuxNavigateRight<cr>";
+        key = "<M-l>";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>TmuxNavigateDown<cr>";
+        key = "<M-j>";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>TmuxNavigateUp<cr>";
+        key = "<M-k>";
+        options = {
+          silent = false;
+        };
+      }
+      {
+        action = "<cmd>TmuxNavigateLeft<cr>";
+        key = "<M-h>";
+        options = {
+          silent = false;
+        };
+      }
+      {
         action = "<cmd>UndotreeToggle<cr>";
         key = "<leader>u";
         options = {
