@@ -5,7 +5,6 @@
     ./sh.nix
     ./git.nix
     ./nixvim.nix
-    ./wm.nix
     ./tmux.nix
     ./sway.nix
     ./kitty.nix
