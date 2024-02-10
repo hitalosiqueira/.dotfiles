@@ -7,7 +7,8 @@
     ./nixvim.nix
     ./wm.nix
     ./tmux.nix
-
+    ./sway.nix
+    ./kitty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -45,6 +46,15 @@
     pkgs.nixpkgs-fmt
     pkgs.wl-clipboard
     pkgs.tmux
+    pkgs.htop
+    pkgs.bat
+    pkgs.kitty
+    pkgs.swaylock
+    pkgs.swayidle
+    pkgs.wl-clipboard
+    pkgs.mako
+    pkgs.alacritty
+    pkgs.wofi
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -80,6 +90,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+  fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
