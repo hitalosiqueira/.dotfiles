@@ -39,7 +39,9 @@
       bindsym XF86MonBrightnessDown exec light -U 10
       bindsym XF86MonBrightnessUp exec light -A 10
 
-      #todo fix volume xf86 keys
+      bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+      bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+      bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
       exec sleep 5; systemctl --user start kanshi.service
 
