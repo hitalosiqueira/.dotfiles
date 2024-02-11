@@ -30,7 +30,6 @@
       # easy-to-remember split pane commands
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
-      bind c new-window -c "#{pane_current_path}"
 
       # vim-tmux-navigator
       is_vim="ps -o state= -o comm= -t '#{pane_tty}' \

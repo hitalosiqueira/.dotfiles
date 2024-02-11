@@ -14,14 +14,6 @@
 
   #keyboard
   services.xremap = {
-    #config = {
-    #  modmap = {        
-    #    name = "Global";
-    #    remap = {
-    #      "CapsLock" = "Ctrl_L";
-    #    };
-    #  };
-    #};
     yamlConfig = ''
       modmap:
         - name: Global
@@ -61,18 +53,6 @@
     LC_TELEPHONE = "pt_PT.UTF-8";
     LC_TIME = "pt_PT.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  #programs.hyprland = {
-  # enable = true;
-  #xwayland.enable = true;
-  #};
 
   security.polkit.enable = true;
 
@@ -149,6 +129,7 @@
       driSupport = true;
     };
   };
+
   xdg = {
     portal = {
       enable = true;
