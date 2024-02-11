@@ -24,6 +24,10 @@
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set-environment -g COLORTERM "truecolor"
 
+      #save and restore sessions
+      set -g @resurrect-capture-pane-contents 'on'
+      set -g @continuum-restore 'on'
+
       # Mouse works as expected
       set-option -g mouse on
       
