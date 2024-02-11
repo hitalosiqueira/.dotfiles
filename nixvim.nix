@@ -26,6 +26,7 @@
       scrolloff = 8;
       colorcolumn = "80";
       laststatus = 3;
+      undofile = true;
     };
 
     extraConfigLua = ''
