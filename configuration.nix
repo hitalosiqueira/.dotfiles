@@ -12,6 +12,7 @@
       inputs.xremap-flake.nixosModules.default
     ];
 
+
   #keyboard
   services.xremap = {
     yamlConfig = ''
@@ -94,6 +95,16 @@
       firefox
       #  thunderbird
     ];
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        user = "hsiq";
+      };
+    };
   };
 
   # Allow unfree packages
