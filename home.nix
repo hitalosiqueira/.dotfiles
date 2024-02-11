@@ -51,6 +51,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.ripgrep
     pkgs.nixpkgs-fmt
     pkgs.wl-clipboard
     pkgs.tmux
