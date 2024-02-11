@@ -9,24 +9,26 @@
     clock24 = true;
     mouse = true;
     shell = "${pkgs.zsh}/bin/zsh";
+    terminal = "tmux-256color";
+    historyLimit = 100000;
     plugins = with pkgs; [
       tmuxPlugins.sensible
       tmuxPlugins.resurrect
       tmuxPlugins.catppuccin
       tmuxPlugins.fingers
-      tmuxPlugins.continuum
       tmuxPlugins.tilish
+      tmuxPlugins.continuum
     ];
     extraConfig = ''
-      # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-      set -g default-terminal "xterm-256color"
-      set -ga terminal-overrides ",*256col*:Tc"
-      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-      set-environment -g COLORTERM "truecolor"
+      set -g @catppuccin_flavour 'mocha'
 
-      #save and restore sessions
+      set -g @resurrect-strategy-vim 'session'
+      set -g @resurrect-strategy-nvim 'session'
       set -g @resurrect-capture-pane-contents 'on'
+
       set -g @continuum-restore 'on'
+      set -g @continuum-boot 'on'
+      set -g @continuum-save-interval '10'
 
       # Mouse works as expected
       set-option -g mouse on
