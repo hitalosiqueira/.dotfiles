@@ -26,8 +26,10 @@
       };
       # Display device configuration
       output = {
+        DP-1 = {
+          scale = "1.0";
+        };
         eDP-1 = {
-          # Set HIDP scale (pixel integer scaling)
           scale = "1.5";
         };
       };
@@ -37,7 +39,13 @@
       bindsym XF86MonBrightnessDown exec light -U 10
       bindsym XF86MonBrightnessUp exec light -A 10
 
+      #todo fix volume xf86 keys
+
       exec sleep 5; systemctl --user start kanshi.service
+
+      output "eDP-1" {
+        disable
+      }
     '';
     # End of Sway-specificc Configuration
   };

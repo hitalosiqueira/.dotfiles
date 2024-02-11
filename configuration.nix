@@ -107,6 +107,12 @@
     };
   };
 
+  services.logind = {
+    lidSwitch = "ignore";
+    lidSwitchDocked = "ignore";
+    lidSwitchExternalPower = "ignore";
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
