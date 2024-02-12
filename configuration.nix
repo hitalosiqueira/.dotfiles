@@ -116,6 +116,14 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = "true";
+    };
+  };
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
